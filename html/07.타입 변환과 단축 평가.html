@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7장. 제어문</title>
+    <link rel="stylesheet" href="../css/07.css" />
+  </head>
+  <body>
+    <h1>7장. 타입 변환과 단축 평가</h1>
+    <p>개발자가 의도적으로 값의 타입을 변환하는 것을 명시적 타입 변환(explicit coercion) 또는 타입 캐스팅(type casting)이라고 한다.</p>
+    <p>개발자의 의도와 상관 없이 자바스크립트 엔진에 의해 암묵적으로 타입이 변환되는 것을 암묵적 타입 변환(implicit coercion)또는 타입 강제
+      변환이라고 한다.
+    </p>
+    <p>암묵적 타입 변환에서 Boolean의 특징이 있다.</p>
+    <p>자바스크립트 엔진은 불리언 타입이 아닌 것을 Truthy 값(참으로 평가되는 값) 또는 Falsy 값(거짓으로 평가되는 값)으로 구분한다.</p>
+    <p>즉 제어문과 조건식과 같이 불리언 값으로 평가되어야 할 문맥에 Truthy 값(참으로 평가되는 값)은 true, Falsy(거짓으로 평가되는 값)은
+      false로 암묵적 타입이 변환이 된다.
+    </p>
+    <p>아래 값들은 모두 Falsy값이고 아래 제외한 값들은 모두 Truthy 값이다.</p>
+    <ul>
+      <li>false</li>
+      <li>undefined</li>
+      <li>null</li>
+      <li>0,-0</li>
+      <li>NaN</li>
+      <li>''(빈 문자열)</li>
+    </ul>
+
+
+    <p>명시적 타입 변환 / 타입 캐스팅</p>
+    <ul>
+      <li>
+        <p>문자열 변환</p>
+        <ul>
+          <li>String(X)</li>
+          <li>toString()</li>
+          <li>1 + '' //문자열 연결</li>
+        </ul>
+        </li>
+        <li>
+          <p>숫자타입 변환</p>
+          <ul>
+            <li>Number(x)</li>
+            <li>parseint(x);</li>
+            <li>'0' + 1</li>
+            <li>'1' * 5</li>
+          </ul>
+        </li>
+        <li>
+          <p>불리언 타입 변환</p>
+          <ul>
+            <li>Boolean()</li>
+            <li>!!x</li>
+          </ul>
+        </li>
+    </ul>
+
+
+    <p>단축 평가</p>
+    <p>||(논리합)</p>
+    <p>&&(논리곱)</p>
+    <p>||(논리합)과 &&(논리곱)은 언제나 2개의 피연산자 중 한쪽으로
+      평가가 된다.
+    </p>
+    
+    <p>&&(논리곱) 연산자</p>
+    <p>&&(논리곱 and)연산자는 두개의 피연산자가 true일 때 true를 반환하다.</p>
+    <p>'Cat' && 'Dog' => "Dog"</p>
+    <p>여기서 Cat은 true지만 뒤에 있는 Dog까지 판별을 하고 그래서 Dog을 리턴한다.</p>
+
+    <p>||(논리합) 연산자</p>
+    <p>&& 비슷하지만 피연산자 둘중에 하나만 true여도 그 값을 리턴을 한다.</p>
+    <p>'Cat' && 'Dog' => "Cat"</p>
+    <p>|| 연산자는 결과값을 경정한 첫번째 연산자를 리턴을 한다.</p>
+    
+    
+    <p>&& , || 연산자들은 논리 연산의 결과를 결정하는 피연산자 타입을 변환하지 않고
+      그대로 반환을 한다. 이를 단축 평가라 하고, 단축 평가는 표현식을 평가하는 도중에 
+      평가가 확정이 나면 나머지 평가 과정을 생략한다.
+    </p>
+    <script src="../js/07.js"></script>
+  </body>
+</html>
