@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14장.생성자 함수</title>
+    <link rel="stylesheet" href="../css/14.css" />
+  </head>
+  <body>
+    <h1>14장.생성자 함수</h1>
+    <p>
+      동일한 프로퍼티를 가지고 있는 객체를 여러 개 생성해야 하는 것은 매번 같은
+      프로퍼티를 기술해야하기 때문에 비효율적이다
+    </p>
+    <script>
+      const circle1 = {
+        radius: 5,
+        getDiameter() {
+          return 2 * this.radius;
+        },
+      };
+      console.log(circle1.getDiameter());
+
+      const circle2 = {
+        radius: 10,
+        getDiameter() {
+          return 2 * this.radius;
+        },
+      };
+      console.log(circle2.getDiameter());
+      // 이러면 비효율적은 같은 프로퍼티를 가지고 있는 인스턴스를 만들어야 하는데
+    </script>
+    <script>
+      //그래서
+
+      function Circle(radius) {
+        //생성자 함수에 내부에 this는 미래에 생성자 함수가 생성할 인스턴스를 가르킨다.
+        this.radius = radius;
+        this.getDiameter = function () {
+          return 2 * this.radius;
+        };
+      }
+
+      //인스턴스 생성
+
+      const circle3 = new Circle(5);
+      const circle4 = new Circle(10);
+
+      console.log(circle3.getDiameter());
+      console.log(circle4.getDiameter());
+    </script>
+    <p>this - 여기서 this 간단하게</p>
+    <ul>
+      <li>일반 함수로서 호출 - 전역객체 가르킴</li>
+      <li>메서드로 호출 - 메서드를 호출한 객체(맞춤표의 앞에 객체)</li>
+      <li>생성자 함수로서 호출 - 생성자 함수가 미래에 생성할 인스턴스</li>
+    </ul>
+
+
+    <p>생성자 함수는 말 그대로 인스턴스(객체)를 생성하는 함수이다</p>
+    <p>자바스크립트에서는 자바와 다르게 일반함수 처럼 생성하며 new 연산자와 함께 호출하면 해당 함수는 생성자 함수로 동작한다.</p>
+    <p>생성자 함수의 역할은 프로퍼티 구조가 동일한 인스턴스를 생성하기 위한 템플릿(클래스)로서 동작하여 인스턴스를 생성하는 것과 생성된 인스턴스를 초기화(인스턴스 프로퍼티 추가 및 초기값 할당)</p>
+
+    <p>함수는 객체이지만 일반 객체와는 다르다. 일반 객체는 호출할 수 없지만 함수는 호출이 가능하다.</p>
+    <script src="../js/14.js"></script>
+  </body>
+</html>
