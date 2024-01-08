@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20.ES6 함수의 추가기능</title>
+    <link rel="stylesheet" href="../css/20.css" />
+  </head>
+  <body>
+    <h1>20.ES6 함수의 추가기능</h1>
+
+    <p>화살표 함수</p>
+    <ul>
+      <li>화살표 함수는 인스턴스를 생성할 수 없는 non-constructor이다 즉 클래스 불가능</li>
+      <li>중복된 매개변수 이름을 선언해도 에러가 발생한다.</li>
+      <li>화살표 함수 자체의 this. arguments, super, mew.targe 바인딩을 갖지 않는다</li>
+      <li>화살표 함수는 자체의 this 바인딩을 갖지 않는다. 따라서 화살표 함수 내부에서 this를 참조하면 상의 스코프 this를 그대로 참조한다. 이를 렉시컬 디스라고 한다.</li>
+    </ul>
+
+    <p>Rest 파라미터</p>
+
+    <script>
+      function foo(...rest){
+        return console.log(rest);
+      }
+      foo(1,2,3,4,5);
+    </script>
+    <p>Rest 파라미터는 함수에 전달된 인수들의 목록을 배열로 받는다.</p>
+
+
+    <p>매개변수의 기본값 === 디폴트 파라미터</p>
+    <p>함수의 매개변수의 기본값을 지정하는 것</p>
+
+   <script src="../js/20.js"></script>
+  </body>
+</html>
