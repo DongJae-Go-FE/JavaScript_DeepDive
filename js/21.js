@@ -67,3 +67,122 @@ console.log(resultConcat3); // [1,2,3,4,5]
 
 console.log(conArr1); // [1,2]
 //concat()은 원본 배열울 직접 수정하지 않는다.
+
+//6. splice()
+const arr5 = [1, 2, 3, 4];
+
+const spliceResult = arr5.splice(1, 2, 20, 30);
+console.log(spliceResult); // 2,3
+// arr5의 1번 인덱스부터 2개 길이를 제거 - shift 후 그 자리에 20, 30을 삽입 즉 unShift 후 제거한 요소 반환
+
+console.log(arr5); // [1,20,30,4]
+// splice() 원본 배열을 직접 수정한다.
+
+//splice() 함수 추가 설명
+// 첫번째 인수는 시작할 인덱스 , 두번째 인수는 시작할 인덱스부터 얼앨 숫자 카운트
+// 세번쨰부터는 배열에 추가할 값
+// arr5.splice(1,0,100) 만약 두번째 인수가 0일 경우 첫번째 인수에 입력한 인덱스에 추가할 값을 추가합니다.
+// arr5.splice(1,2) - 간단하게 생각을 하면 1번째 인덱스부터 시작을 하여 2번째 인덱스까지 제거를 한다.
+// arr5.splice(1) - 하나만 입력을 할 경우 입력한 인덱스부터 전부제거 한다.
+
+// 7. slice()
+const arr6 = [1, 2, 3];
+
+let sliceResult1 = arr6.slice(0, 1); // arr6[0]부터 arr[1] 이전까지 복사하여 반환을 합니다 // [1]
+let sliceResult2 = arr6.slice(1, 2); // arr6[1]부터 arr[2] 이전까지 복사하여 반환을 합니다 // [2]
+
+console.log(arr6); // [1,2,3]
+//원본 배열을 변경하지 않습니다.
+//배열의 첫번째 인수는 start, 두번째 인수는 end
+//두번쨰 인수를 생략을 하면 전달 받은 첫번째 인수부터 끝까지 모든 요소를 복사한다.
+//인수를 전부 생략을 하면 원본 배열의 복사본을 생성합니다.
+//이 때 생성된 배열은 얇은 복사이다 중첩된 객체는 복사할 수 없다.
+
+// 8. join()
+// 설명 join 메서드는 배열안 모든 요소를 string으로 변환 후 인수로 전달 받은 문자열 즉 구분자로 연결한 문자열을 반환한다. 구분자는 생략이 가능하며 기본 구분자는 ","이다
+const arr7 = [1, 2, 3, 4];
+
+const joinResult = arr7.join(); // '1,2,3,4'
+const joinResult2 = arr7.join(" "); // '1234' 사이에 빈문자열로 리턴을 한 후 문자열로 연갈한 문자열을 반환한다.
+const joinResult24 = arr7.join(":"); // '1:2:3:4'
+console.log(arr7); // [1,2,3,4]
+//원본 배열의 변경이 없습니다.
+
+// 9. reverse()
+const arr8 = [1, 2, 3, 4];
+arr8.reverse(); // [4,3,2,1]
+
+console.log(arr8); // 4,3,2,1
+//원본 배열을 직접 변경합니다.
+
+// 10. fill()
+
+const arr9 = [1, 2, 3, 4];
+arr9.fill(0); // [0,0,0,0]
+console.log(arr9); // 원본 배열을 직접 변경합니다.
+
+// arr9.fill(0,1) // 배열의 첫번째 인덱스부터 끝까지 0으로 채운다 [1,0,0,0]
+// arr9.fill(0,1,3) // 배열의 첫번째 인덱스부터 3이전까지 0으로 채운다 [1,0,0,4]
+
+// 11. includes()
+const arr10 = [1, 2, 3, 4];
+
+arr10.includes(2); // true 배열에 2가 포함되어 있는지 확인한다.
+arr10.includes(100); // false 당연히 없습니다깐
+arr10.includes(1, 1); // 첫번쨰 인수는 배열에 있는지 확인할 값 , 두번쨰 인수는 검사를 시작할 인덱스
+arr10.includes(3, -1); // 이렇게 하면 배열의 길이 즉 length -1 의 인덱스 부터 검사를 시작한다.
+
+// 12. flat()
+
+const arr11 = [1, [2, 3, 4]];
+const arr11Reslut = arr11.flat(); // [1,2,3,4]
+
+const arrExample1 = [1, 2, [3, 4, [5, 6]]];
+arrExample1.flat();
+// [1, 2, 3, 4, [5, 6]]
+
+const arrExample2 = [1, 2, [3, 4, [5, 6]]];
+arrExample2.flat(2);
+// [1, 2, 3, 4, 5, 6]
+
+const arrExample3 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+arrExample3.flat(Infinity);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+//원본 배열은 수정하지 안ㄹ고 복사본을 생겅한다.
+
+//13 sort()
+//원본 배열 직접 변경하며 배열을 정렬을 한다
+const sortArr = [40, 100, 1, 5, 2, 25, 10];
+
+sortArr.sort((a, b) => {
+  return a - b;
+}); // 오름차순 정렬
+// 그냥 정렬을 때려버리면 1, 10 ... 이런식으로 한다
+
+sortArr.sort((a, b) => {
+  return b - a;
+});
+// 내림차순 정렬
+
+
+//14 forEach()
+const forEachArr = [1, 2, 3];
+
+forEachArr.forEach((item, index, arr) => {
+  return { item: item, index: index, arr: arr };
+});
+
+//배열의 길이만큼 반복을 해줌
+// 첫번쨰 인수는 배열의 현재 순환값, 두번째 인수는 index, 세번째는 배열 그 자체
+
+//15 map() 배열의 길이 만큼 반복을 하며 배열로 리턴 첫번쨔 배열의 값 두번쨔 인덱스라고 알고만 있어라
+//원본 배열 수정
+
+//16 filter()
+
+//콜백함수의 반환값이 참인 경우만 반환
+const filterArr = [1,2,3]
+
+const resultFilter = filterArr.filter(item => item % 2 === 1)//[1,3]
+//원본 배열을 수정하지 않느다.
