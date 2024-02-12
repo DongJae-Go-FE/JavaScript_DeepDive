@@ -127,16 +127,15 @@ console.log(arr9); // 원본 배열을 직접 변경합니다.
 // 11. includes()
 const arr10 = [1, 2, 3, 4];
 
-arr10.includes(2)// true 배열에 2가 포함되어 있는지 확인한다.
-arr10.includes(100)// false 당연히 없습니다깐
-arr10.includes(1,1) // 첫번쨰 인수는 배열에 있는지 확인할 값 , 두번쨰 인수는 검사를 시작할 인덱스
-arr10.includes(3,-1) // 이렇게 하면 배열의 길이 즉 length -1 의 인덱스 부터 검사를 시작한다.
-
+arr10.includes(2); // true 배열에 2가 포함되어 있는지 확인한다.
+arr10.includes(100); // false 당연히 없습니다깐
+arr10.includes(1, 1); // 첫번쨰 인수는 배열에 있는지 확인할 값 , 두번쨰 인수는 검사를 시작할 인덱스
+arr10.includes(3, -1); // 이렇게 하면 배열의 길이 즉 length -1 의 인덱스 부터 검사를 시작한다.
 
 // 12. flat()
 
-const arr11 = [1,[2,3,4]];
-const arr11Reslut = arr11.flat() // [1,2,3,4]
+const arr11 = [1, [2, 3, 4]];
+const arr11Reslut = arr11.flat(); // [1,2,3,4]
 
 const arrExample1 = [1, 2, [3, 4, [5, 6]]];
 arrExample1.flat();
@@ -152,3 +151,38 @@ arrExample3.flat(Infinity);
 
 //원본 배열은 수정하지 안ㄹ고 복사본을 생겅한다.
 
+//13 sort()
+//원본 배열 직접 변경하며 배열을 정렬을 한다
+const sortArr = [40, 100, 1, 5, 2, 25, 10];
+
+sortArr.sort((a, b) => {
+  return a - b;
+}); // 오름차순 정렬
+// 그냥 정렬을 때려버리면 1, 10 ... 이런식으로 한다
+
+sortArr.sort((a, b) => {
+  return b - a;
+});
+// 내림차순 정렬
+
+
+//14 forEach()
+const forEachArr = [1, 2, 3];
+
+forEachArr.forEach((item, index, arr) => {
+  return { item: item, index: index, arr: arr };
+});
+
+//배열의 길이만큼 반복을 해줌
+// 첫번쨰 인수는 배열의 현재 순환값, 두번째 인수는 index, 세번째는 배열 그 자체
+
+//15 map() 배열의 길이 만큼 반복을 하며 배열로 리턴 첫번쨔 배열의 값 두번쨔 인덱스라고 알고만 있어라
+//원본 배열 수정
+
+//16 filter()
+
+//콜백함수의 반환값이 참인 경우만 반환
+const filterArr = [1,2,3]
+
+const resultFilter = filterArr.filter(item => item % 2 === 1)//[1,3]
+//원본 배열을 수정하지 않느다.
