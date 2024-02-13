@@ -165,7 +165,6 @@ sortArr.sort((a, b) => {
 });
 // 내림차순 정렬
 
-
 //14 forEach()
 const forEachArr = [1, 2, 3];
 
@@ -182,7 +181,55 @@ forEachArr.forEach((item, index, arr) => {
 //16 filter()
 
 //콜백함수의 반환값이 참인 경우만 반환
-const filterArr = [1,2,3]
+const filterArr = [1, 2, 3];
 
-const resultFilter = filterArr.filter(item => item % 2 === 1)//[1,3]
+const resultFilter = filterArr.filter((item) => item % 2 === 1); //[1,3]
 //원본 배열을 수정하지 않느다.
+
+//17.reduce 함수
+//배열의 각 요소를 순회하며 callback 함수의 실행값을 누적하며 하나의 결과값을 반환 합니다.
+//reduce(accumulator, currentValue, index?, array?)
+//accumulator === 콜백함수의 누적값을 반환합니다. += 계속해서 누적을 합니다
+//currentValue === 순회하고 있지만 현재값
+//index === 순회하고 있는 index
+//array === 현재 배열
+
+//reduce((accumulator, currentCalue)=>{return acuumulator + currentValue}) 이런식이면 배열의 총합
+
+//18.some()
+//배열에서 자신이 전달한 some() 함수 안에서 인수로 전달한 콜백 함수를 호출한다.
+//인수로 전달한 콜백함수를 포함 할 경우 true를 리턴 두번째 인자는 map 처럼 this
+
+const someArr = [1, 10, 15];
+someArr.some((item, it) => item > 10); // true
+//두번째 인자는 this
+
+//19. every()
+//some 함수와 마찬가지로 인수로 전달한 콜백함수를 호출한다.
+//단 some과 다른 점은 배열의 모든 값이 인수로 전달한 콜백함수의 값이랑 전부 동일할 경우에만 true를 리턴을 한다.
+// 두번쨰 인자는 this 이다
+
+const everyArr = [1, 10, 15];
+everyArr.every((item, it) => item > 0); //true
+everyArr.every((item, it) => item > 2); // false
+
+//20. find()
+// 말그대로 찾는 것 배열에서 find 함수에 전달한 콜백 함수의 값과 동일한 첫번째 값을 리턴, 여기서 배열을 리턴하는 것이 아니라 그 안에 요소를 반환한다
+
+const findUser = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" },
+  { id: 3, name: "c" },
+];
+
+findUser.find((user, it) => user.id === 1); // {id: 1, name: "a"}
+//이것 또한 마찬가지로 두번째 인자는 this이다.
+
+//21. findIndex()
+// find랑 동일 얘는 배열의 index 를 구한다.
+
+//22. split()
+//전달된 인수 정규표현식으로 검색하여 문자열을 구분한 후 배열로 반환을 한다
+const splitText = "How Are You Doing?";
+splitText.split(" "); // 이러면 공백을 기준으로 ["How","Are","You","Doing?"]
+splitText.split(""); // 이렇게 넣으면 공백을 포함한 모든 단어를 스트링 타입으로 리턴을 한다 ["H","o","w"," ". "A"....쭉]
