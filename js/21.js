@@ -233,3 +233,23 @@ findUser.find((user, it) => user.id === 1); // {id: 1, name: "a"}
 const splitText = "How Are You Doing?";
 splitText.split(" "); // 이러면 공백을 기준으로 ["How","Are","You","Doing?"]
 splitText.split(""); // 이렇게 넣으면 공백을 포함한 모든 단어를 스트링 타입으로 리턴을 한다 ["H","o","w"," ". "A"....쭉]
+
+
+//23. replace()
+// 첫번째 인수랑 동일한 것을 두번째 인수로 대체한다,
+
+const repalceStr = "Hello world"
+repalceStr.replace("Hello", "안녕") // 안녕 world
+
+
+
+//숫자형 형변환
+// Number()
+
+//Math() ...
+
+// 날짜
+// new Date
+
+// toLowerCase  소문자,   toUperCase 대문자
+// 이런거 많으니 위에 수준 정도만 학습을 하고 나머지는 찾아서 써라
