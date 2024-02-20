@@ -1,0 +1,12 @@
+/* 가물가물한거 */
+
+input[type="text"]{font-size: 16px;}
+/* 타입 선택자 */
+
+
+
+p + ul{font-size: 16px;}
+/*p 뒤에 바로 오는 형제 ul선택*/
+
+p ~ ul{font-size: 16px;}
+/*p의 형제 요소에 위치하는 ul 모두 선택*/
