@@ -48,7 +48,7 @@ console.log(shiftResult); //1
 
 console.log("shift", shiftResult);
 //shift 메서드는 원본 배열을 직접 변경한다.
-
+	
 //5. concat()
 const conArr1 = [1, 2];
 const conArr2 = [3, 4];
