@@ -37,3 +37,4 @@ text.innerHTML = `<script>alert(document.cookie)</script>`;
 //DOMPurify라는 라이브러리를 설치해 이런식으로 방지하는 것이 좋다
 //아래 코드를 직접 구현하는 것도 좋지만 그냥 라이브러리 설치해서 써라
 //DOMPurify.sanitize('<img src="x" onerror-"alert(document.cookie)">')
+//
