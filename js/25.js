@@ -71,4 +71,4 @@ btn.addEventListener(
 btn.removeEventListener("click", () => {
   console.log("제거");
 });
-// 전달한 인수가 동일해야한다.!!!!
+// 전달한 인수가 동일해야한다.
