@@ -72,3 +72,29 @@ btn.removeEventListener("click", () => {
   console.log("제거");
 });
 // 전달한 인수가 동일해야한다.
+
+//이벤트 전파
+//생성된 이벤트 객체는 이벤트를 발생시킨 DOM 요소인 이벤트 타깃을 중심으로 DOM트리를 통해 전파된다.
+
+//이벤트 전파 방지
+//이벤트 객체의 stopPropagation - 이벤트 버블링 방지
+//이벤트 버블링이랑 이벤트가 발생하는 하위 요소까지 이벤트가 퍼지는 것을 말한다.
+//이를 방지하기 위해 e.stopPropagation을 쓴다.
+
+//이벤트 핸들러 내에 this
+console.log(this); //window
+
+function fun() {
+  console.log(this); // window
+}
+
+const btnThis = document.getElementById("btn1");
+
+btnThis.addEventListener("click", function () {
+  console.log(this); // btnThis
+});
+
+btnThis.addEventListener("click", (e) => {
+  console.log(this); // window
+  console.log(e) // btnThis
+});
