@@ -252,4 +252,4 @@ repalceStr.replace("Hello", "안녕") // 안녕 world
 // new Date
 
 // toLowerCase  소문자,   toUperCase 대문자
-// 이런거 많으니 위에 수준 정도만 학습을 하고 나머지는 찾아서 써라
+// 이런거 많으니 위에 수준 정도만 학습을 하고 나머지는 찾아서 써라.
